@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .parent-wrapper {
@@ -10,16 +11,40 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #ffffff;
 }
 
-.child-wrapper {
+.parent-wrapper .child-wrapper {
     border: 2px solid #ffffff;
     width: 60%;
     height: 60%;
-    padding: 20px;
-}
-
-.inner-wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.parent-wrapper .child-wrapper .counter,
+.parent-wrapper .child-wrapper .counter-form {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.parent-wrapper .child-wrapper .counter {
+    font-size: 74px;
+    align-items: end;
+}
+
+.parent-wrapper .child-wrapper .counter-form {
+    font-size: 18px;
+    align-items: center;
+}
+
+.parent-wrapper .child-wrapper .counter-form .row-counter {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
