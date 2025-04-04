@@ -4,21 +4,22 @@ import './App.css'
 function App() {
 	const [count, setCount] = useState(0);
 	const [timer, setTimer] = useState(4);
+	const [incDecAmt, setIncDecAmt] = useState(1);
 
 	useEffect(() => {
 		const intervalId = setInterval(() => {
-			setCount(prevState => prevState + 1);
+			setCount(prevState => prevState + incDecAmt);
 		}, (+(timer) * 1000));
 
 		return () => clearInterval(intervalId);
-	}, [timer]);
+	}, [timer, incDecAmt]);
 
 	function handleDecrement() {
-		setCount(prevState => prevState - 1);
+		setCount(prevState => prevState - incDecAmt);
 	}
 
 	function handleIncrement() {
-		setCount(prevState => prevState + 1);
+		setCount(prevState => prevState + incDecAmt);
 	}
 
 	function handleCounterInputChange(event) {
@@ -35,6 +36,18 @@ function App() {
 
 	function handleTimerInputChange(event) {
 		setTimer(+(event?.target?.value));
+	}
+
+	function handleAmtDecrement() {
+		setIncDecAmt(prevState => prevState - 1);
+	}
+
+	function handleAmtIncrement() {
+		setIncDecAmt(prevState => prevState + 1);
+	}
+
+	function handleAmtInputChange(event) {
+		setIncDecAmt(+(event?.target?.value));
 	}
 
 	return (
@@ -55,6 +68,12 @@ function App() {
 						<button style={{ width: '25px', height: '25px' }} onClick={handleTimerDecrement}>-</button>
 						<input type="number" value={timer} onChange={handleTimerInputChange} />
 						<button style={{ width: '25px', height: '25px' }} onClick={handleTimerIncrement}>+</button>
+					</div>
+					<div className="row-counter">
+						<span style={{ width: '30%', textAlign: 'center' }}>Increment Decrement Amount Input</span>
+						<button style={{ width: '25px', height: '25px' }} onClick={handleAmtDecrement}>-</button>
+						<input type="number" value={incDecAmt} onChange={handleAmtInputChange} />
+						<button style={{ width: '25px', height: '25px' }} onClick={handleAmtIncrement}>+</button>
 					</div>
 				</div>
 			</div>
