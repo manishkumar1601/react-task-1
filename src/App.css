@@ -39,6 +39,7 @@
 
 .parent-wrapper .child-wrapper .counter-form {
     font-size: 18px;
+    flex-direction: column;
     align-items: center;
 }
 
